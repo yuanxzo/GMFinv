@@ -1,0 +1,9 @@
+200        !---- Parameter of PSO algorithm: Maximum iteration times(gen).
+40         !---- Parameter of PSO algorithm: Default particle number(pop).
+1          !---- Parameter of PSO algorithm: Particle number balance(bal).  Note: If bal = 1, the program will change the pop value according to different problems, otherwise pop will be the default value
+1.49445d0  !---- Parameter of PSO algorithm: Positive learning factor(c1).
+1.49445d0  !---- Parameter of PSO algorithm: Positive learning factor(c2).
+0.729d0    !---- Parameter of PSO algorithm: Inertia weight(iw).            Note: c1, c2 and iw should not be changed in general.
+3          !---- Parameter of GMF inversion: The type of generalized misfit function(1:GMF; 2:GMF+dm; 3:NGMF; 4:NGMF+dm).
+1          !---- Parameter of GMF inversion: Number of independent repeated inverstions.
+24         !---- Parameter of openMP       : omp_set_num_threads.
