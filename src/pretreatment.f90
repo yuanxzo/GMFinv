@@ -23,7 +23,7 @@
 
 subroutine pretreatment
     use commondata
-	Use omp_lib
+    Use omp_lib
     Integer::i,t,k,nthreads,info
     Character::modeltype(1),nowtype(1)
     Real(8)::time1,time2
