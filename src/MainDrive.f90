@@ -28,7 +28,7 @@ Program maindrive
     Integer(kind = 4)::time1,time2
     Character(len = 2000)::Fomt1,Fomt2,Fomt3,Fomt4
 
-	Write(*,*) "<GMFinv>  Copyright (C) <2021>  <Bo Yang. Email:yuanxzo@qq.com>"
+    Write(*,*) "<GMFinv>  Copyright (C) <2021>  <Bo Yang. Email: b.yang@petalmail.com>"
     Write(*,*) "This program comes with ABSOLUTELY NO WARRANTY."
     Write(*,*) "This is free software, and you are welcome to redistribute it"
     Write(*,*) "under certain conditions; see <https://www.gnu.org/licenses/> for details."
