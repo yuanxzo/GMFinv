@@ -1,6 +1,6 @@
 ! MIT License
 ! 
-! Copyright (c) 2022 Bo YANG (b.yang@petalmail.com)
+! Copyright (c) 2022 Bo YANG (seism.yang@foxmail.com)
 ! 
 ! Permission is hereby granted, free of charge, to any person obtaining a copy
 ! of this software and associated documentation files (the "Software"), to deal
