@@ -48,7 +48,7 @@ Subroutine PSO
     bestx(0,1)=bin(1);bestx(0,2:2*ceng)=gbestone
     
     If (cyc==1) Then
-        write(Fomt1,'("(","(I4)",I0,"(f10.2)",")")') lenchrom
+        write(Fomt1,'("(","(A1),(I4),(A1)",I0,"(f10.2)",")")') lenchrom
         write(*,'(A60)') ' >>And in this inversion will show the details of iteration.'
     End If
 	
@@ -96,7 +96,7 @@ Subroutine PSO
         bestx(t,1)=bin(1);bestx(t,2:2*ceng)=gbestone
 
         If (cyc==1) Then
-            write(*,Fomt1) t, gbestone
+            write(*,Fomt1) '[',t,']', gbestone
         End If
         
     End Do
