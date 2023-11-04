@@ -28,20 +28,20 @@ Program maindrive
     Integer(kind = 4)::time1,time2
     Character(len = 2000)::Fomt1,Fomt2,Fomt3,Fomt4
 
-    Write(*,*) "<GMFinv>  Copyright (C) <2021>  <Bo Yang. Email: b.yang@petalmail.com>"
+    Write(*,*) "<GMFinv>  Copyright (C) <2021>  <Bo Yang. Email: seism.yang@foxmail.com>"
     Write(*,*) "This program comes with ABSOLUTELY NO WARRANTY."
     Write(*,*) "This is free software, and you are welcome to redistribute it"
     Write(*,*) "under certain conditions; see <https://www.gnu.org/licenses/> for details."
     Write(*,*)
-	Write(*,*)
     Write(*,*) '**********************************************************************'
     Write(*,*) '           Multimodal dispersion curves inversion program             '
-    Write(*,*) '                based on generalized misfit function                  '
+    Write(*,*) '               based on a generalized misfit function                  '
     Write(*,*)
-    Write(*,*) 'Timestamp: 2021-03-01'
+    Write(*,*) 'Timestamp: 2022-11-04'
     Write(*,*) 'Version  : 1.0'
-    Write(*,*) 'Brief    : '
-    Write(*,*) 'Reference: '
+    Write(*,*) 'Reference: Multimodal inversion of Rayleigh wave dispersion curves'
+    Write(*,*) '           based on a generalized misfit function. 2022. '
+    Write(*,*) '           DOI:10.1016/j.jappgeo.2022.104849.'
     Write(*,*) '**********************************************************************'
     Write(*,*)
     
@@ -52,12 +52,10 @@ Program maindrive
     Inquire(file='input-data.txt',EXIST=VALL2)
     Inquire(file='input-mods.txt',EXIST=VALL3)
     If( .not.(VALL1 .and. vall2 .and. vall3) ) Then
-        Write(*,*) "The 'input-' files in the current directory is incomplete. Press 'Enter' to end the program!"
+        Write(*,*) "Error: The 'input-' files in the current directory is incomplete. Press 'Enter' to end the program!"
         Write(*,*) '======================'
-        Write(*,*) '* Inverted by GMFinv *'
-        Write(*,*) 'E-mail: yuanxzo@qq.com'
-        Write(*,*) 'Regards, Bo Yang.'
-        Write(*,*) '======================='
+        Write(*,*) '  Regards, Bo Yang.'
+        Write(*,*) '======================'
         info=0
         Goto 999
     Else
@@ -76,10 +74,10 @@ Program maindrive
     Call system_clock(time1)
     
     !---------- Start inversion ----------!
-    write(Fomt1,'("(","(A4),(f17.7)",I0,"(f15.7)",")")') lenchrom
+    write(Fomt1,'("(","(A6),(f17.7)",I0,"(f15.7)",")")') lenchrom
     write(Fomt2,'("(",I0,"(f15.7)",")")') 4
-    write(Fomt3,'("(","(I4),(I16),(E24.7)",I0,"(f13.3)",")")') lenchrom
-    write(Fomt4,'("(","(I4),(f17.7)",I0,"(f15.7)",")")') lenchrom
+    write(Fomt3,'("(","(A1),(I4),(A1),(I16),(E24.7)",I0,"(f13.3)",")")') lenchrom
+    write(Fomt4,'("(","(A1),(I4),(A1),(f17.7)",I0,"(f15.7)",")")') lenchrom
     Write(*,'(A19)') ' In iteration......'
     Write(*,'(A41,I4,A7)') ' >>The program will perform the inversion',cyc,' times.'
     If (cyc>1) Then
@@ -96,8 +94,8 @@ Program maindrive
 
         If (cyc==1) Then
             Write(*,'(a81)') "The misfit value and S-wave velocity profile of inversion results is as follows:"
-            Write(* ,Fomt1) '1',bestf(gen),bestone
-            Write(30,Fomt1) '1',bestf(gen),bestone
+            Write(* ,Fomt1) '[1]',bestf(gen),bestone
+            Write(30,Fomt1) '[1]',bestf(gen),bestone
 
             Do i=1,ceng-1
                 Write(40,Fomt2) bestone(ceng-1+i),vp(i)/vs(i)*bestone(ceng-1+i),dns(i),bestone(i)
@@ -106,11 +104,11 @@ Program maindrive
             
             !Write(50,*) 'iter','bestin','GMF','bestone(Column 4 -> End)'
             Do i=0,gen
-                Write(50,Fomt3) i,int(bestx(i,1)),bestf(i),bestx(i,2:2*ceng)
+                Write(50,Fomt3) '[',i,']',int(bestx(i,1)),bestf(i),bestx(i,2:2*ceng)
             End Do
         Else
-            Write(* ,Fomt4) icyc,bestf(gen),bestone
-            Write(30,Fomt4) icyc,bestf(gen),bestone
+            Write(* ,Fomt4) '[',icyc,']',bestf(gen),bestone
+            Write(30,Fomt4) '[',icyc,']',bestf(gen),bestone
         End If
     End Do
 
