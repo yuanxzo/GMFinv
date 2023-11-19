@@ -158,10 +158,10 @@ Contains
             
             If (abs(a)>10.0d0**40) Then
                 a=1.0
-                e=-1.0/(ic*rp)
+                e=0.0
                 
                 b=1.0
-                d=-1.0/(ic*rs)
+                d=0.0
             End If
             
             r=rp**2
