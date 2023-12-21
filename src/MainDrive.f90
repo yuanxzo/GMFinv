@@ -93,7 +93,7 @@ Program maindrive
         Call PSO
 
         If (cyc==1) Then
-            Write(*,'(a81)') "The misfit value and S-wave velocity profile of inversion results is as follows:"
+            Write(*,'(a81)') "The misfit value and S-wave velocity profile of inversion result is as follows:"
             Write(* ,Fomt1) '[1]',bestf(gen),bestone
             Write(30,Fomt1) '[1]',bestf(gen),bestone
 
